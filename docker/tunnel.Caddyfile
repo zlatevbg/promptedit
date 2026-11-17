@@ -1,0 +1,8 @@
+# The tunnel is public: expose only the webhook endpoint, never the app itself.
+:8080 {
+	handle /webhooks/pixelforge {
+		reverse_proxy app:8000
+	}
+
+	respond 404
+}
